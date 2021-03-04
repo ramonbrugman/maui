@@ -49,6 +49,9 @@ namespace Maui.Controls.Sample.Pages
 
 			verticalStack.Add(horizontalStack);
 
+			verticalStack.Add(new ActivityIndicator());
+			verticalStack.Add(new ActivityIndicator { Color = Color.Red, IsRunning = true });
+
 			verticalStack.Add(new Entry());
 			verticalStack.Add(new Entry { Text = "Entry", TextColor = Color.DarkRed });
 			verticalStack.Add(new Entry { IsPassword = true, TextColor = Color.Black });
