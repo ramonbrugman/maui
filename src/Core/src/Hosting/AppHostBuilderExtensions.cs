@@ -40,6 +40,7 @@ namespace Microsoft.Maui.Hosting
 				{  typeof(IEntry), typeof(EntryHandler) },
 				{  typeof(ILayout), typeof(LayoutHandler) },
 				{  typeof(ILabel), typeof(LabelHandler) },
+				{  typeof(IPicker), typeof(PickerHandler) },
 				{  typeof(IProgress), typeof(ProgressBarHandler) },
 				{  typeof(ISlider), typeof(SliderHandler) },
 				{  typeof(ISwitch), typeof(SwitchHandler) }

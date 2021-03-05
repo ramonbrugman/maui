@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Maui.Controls.Sample.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui;
@@ -9,6 +11,7 @@ namespace Maui.Controls.Sample.Pages
 	public class MainPage : ContentPage, IPage
 	{
 		MainPageViewModel _viewModel;
+
 		public MainPage() : this(App.Current.Services.GetService<MainPageViewModel>())
 		{
 
@@ -65,6 +68,22 @@ namespace Maui.Controls.Sample.Pages
 			verticalStack.Add(new ProgressBar { Progress = 0.5 });
 			verticalStack.Add(new ProgressBar { Progress = 0.5, BackgroundColor = Color.LightCoral });
 			verticalStack.Add(new ProgressBar { Progress = 0.5, ProgressColor = Color.Purple });
+
+			var monkeyList = new List<string>
+			{
+				"Baboon",
+				"Capuchin Monkey",
+				"Blue Monkey",
+				"Squirrel Monkey",
+				"Golden Lion Tamarin",
+				"Howler Monkey",
+				"Japanese Macaque"
+			};
+
+			var picker = new Picker { Title = "Select a monkey" };
+
+			picker.ItemsSource = monkeyList;
+			verticalStack.Add(picker);
 
 			verticalStack.Add(new Slider());
 
