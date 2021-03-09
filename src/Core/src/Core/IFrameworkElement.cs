@@ -1,3 +1,5 @@
+using Microsoft.Maui.Primitives;
+
 namespace Microsoft.Maui
 {
 	/// <summary>
@@ -83,5 +85,11 @@ namespace Microsoft.Maui
 		/// Id used by automation tools to interact with this FrameworkElement
 		/// </summary>
 		string AutomationId { get; }
+
+		double Width { get; }
+		double Height { get; }
+
+		LayoutAlignment HorizontalLayoutAlignment { get; }
+		LayoutAlignment VerticalLayoutAlignment { get; }
 	}
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.Maui;
 
 namespace Microsoft.Maui.Layouts
 {
@@ -21,7 +20,7 @@ namespace Microsoft.Maui.Layouts
 			return new Size(finalWidth, measure.Height);
 		}
 
-		public override void Arrange(Rectangle bounds) => Arrange(Stack.Spacing, Stack.Children);
+		public override void Arrange(Rectangle bounds) => Arrange(bounds.Height, Stack.Spacing, Stack.Children);
 
 		static Size Measure(double heightConstraint, int spacing, IReadOnlyList<IView> views)
 		{
@@ -41,13 +40,13 @@ namespace Microsoft.Maui.Layouts
 			return new Size(totalRequestedWidth, requestedHeight);
 		}
 
-		static void Arrange(int spacing, IEnumerable<IView> views)
+		static void Arrange(double height, int spacing, IEnumerable<IView> views)
 		{
 			double stackWidth = 0;
 
 			foreach (var child in views)
 			{
-				var destination = new Rectangle(stackWidth, 0, child.DesiredSize.Width, child.DesiredSize.Height);
+				var destination = new Rectangle(stackWidth, 0, child.DesiredSize.Width, height);
 				child.Arrange(destination);
 
 				stackWidth += destination.Width + spacing;

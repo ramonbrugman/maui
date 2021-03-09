@@ -121,5 +121,8 @@ namespace Microsoft.Maui.Controls
 			IsMeasureValid = true;
 			return DesiredSize;
 		}
+
+		Primitives.LayoutAlignment IFrameworkElement.HorizontalLayoutAlignment => default;
+		Primitives.LayoutAlignment IFrameworkElement.VerticalLayoutAlignment => default;
 	}
 }

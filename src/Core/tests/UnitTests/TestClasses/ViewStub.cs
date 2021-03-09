@@ -1,5 +1,5 @@
 using System;
-using Microsoft.Maui;
+using Microsoft.Maui.Primitives;
 
 namespace Microsoft.Maui.Tests
 {
@@ -28,6 +28,10 @@ namespace Microsoft.Maui.Tests
 		public Thickness Margin => throw new NotImplementedException();
 
 		public string AutomationId => throw new NotImplementedException();
+
+
+		public LayoutAlignment HorizontalLayoutAlignment { get; set; }
+		public LayoutAlignment VerticalLayoutAlignment { get; set; }
 
 		public void Arrange(Rectangle bounds)
 		{
