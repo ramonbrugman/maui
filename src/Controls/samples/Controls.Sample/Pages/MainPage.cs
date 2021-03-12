@@ -29,10 +29,6 @@ namespace Maui.Controls.Sample.Pages
 			var verticalStack = new VerticalStackLayout() { Spacing = 5, BackgroundColor = Color.AntiqueWhite };
 			var horizontalStack = new HorizontalStackLayout() { Spacing = 2, BackgroundColor = Color.CornflowerBlue };
 
-			var searchBar = new SearchBar();
-			searchBar.Text = "A search query";
-			verticalStack.Add(searchBar);
-
 			var label = new Label { Text = "This will disappear in ~5 seconds", BackgroundColor = Color.Fuchsia };
 			label.Margin = new Thickness(15, 10, 20, 15);
 
@@ -68,6 +64,7 @@ namespace Maui.Controls.Sample.Pages
 			{
 				System.Console.WriteLine($"Text Changed from '{e.OldTextValue}' to '{e.NewTextValue}'");
 			};
+
 			verticalStack.Add(entry);
 			verticalStack.Add(new Entry { Text = "Entry", TextColor = Color.DarkRed });
 			verticalStack.Add(new Entry { IsPassword = true, TextColor = Color.Black });
@@ -95,14 +92,25 @@ namespace Maui.Controls.Sample.Pages
 			picker.ItemsSource = monkeyList;
 			verticalStack.Add(picker);
 
+			var searchBar = new SearchBar();
+			searchBar.Text = "A search query";
+			verticalStack.Add(searchBar);
+
+			var placeholderSearchBar = new SearchBar();
+			placeholderSearchBar.Placeholder = "Placeholder";
+			verticalStack.Add(placeholderSearchBar);
+
 			verticalStack.Add(new Slider());
 
 			verticalStack.Add(new Switch());
 			verticalStack.Add(new Switch() { OnColor = Color.Green });
 			verticalStack.Add(new Switch() { ThumbColor = Color.Yellow });
 			verticalStack.Add(new Switch() { OnColor = Color.Green, ThumbColor = Color.Yellow });
+
 			verticalStack.Add(new DatePicker());
+
 			verticalStack.Add(new TimePicker());
+
 			verticalStack.Add(new Image() { Source = "dotnet_bot.png" });
 
 			Content = verticalStack;
