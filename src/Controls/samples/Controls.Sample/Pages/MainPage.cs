@@ -27,10 +27,6 @@ namespace Maui.Controls.Sample.Pages
 			var verticalStack = new VerticalStackLayout() { Spacing = 5, BackgroundColor = Color.AntiqueWhite };
 			var horizontalStack = new HorizontalStackLayout() { Spacing = 2, BackgroundColor = Color.CornflowerBlue };
 
-			var searchBar = new SearchBar();
-			searchBar.Text = "A search query";
-			verticalStack.Add(searchBar);
-
 			var label = new Label { Text = "This will disappear in ~5 seconds", BackgroundColor = Color.Fuchsia };
 			label.Margin = new Thickness(15, 10, 20, 15);
 
@@ -76,6 +72,11 @@ namespace Maui.Controls.Sample.Pages
 			verticalStack.Add(new ProgressBar { Progress = 0.5 });
 			verticalStack.Add(new ProgressBar { Progress = 0.5, BackgroundColor = Color.LightCoral });
 			verticalStack.Add(new ProgressBar { Progress = 0.5, ProgressColor = Color.Purple });
+
+			var searchBar = new SearchBar();
+			searchBar.CharacterSpacing = 4;
+			searchBar.Text = "A search query";
+			verticalStack.Add(searchBar);
 
 			verticalStack.Add(new Slider());
 
