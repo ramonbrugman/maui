@@ -7,5 +7,7 @@
 		public string Text { get => _text; set => SetProperty(ref _text, value); }
 
 		public double CharacterSpacing { get; set; }
+
+		public string Placeholder { get; set; }
 	}
 }

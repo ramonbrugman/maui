@@ -54,5 +54,8 @@ namespace Microsoft.Maui.DeviceTests
 
 			return -1;
 		}
+
+		string GetNativePlaceholder(SearchBarHandler searchBarHandler) =>
+			GetNativeSearchBar(searchBarHandler).QueryHint;
 	}
 }

@@ -21,7 +21,15 @@ namespace Microsoft.Maui
 			if (textField == null)
 				return;
 
-			textField.AttributedText = textField.AttributedText?.AddCharacterSpacing(searchBar.Text, searchBar.CharacterSpacing);
+			var textAttr = textField.AttributedText?.WithCharacterSpacing(searchBar.CharacterSpacing);
+
+			if (textAttr != null)
+				textField.AttributedText = textAttr;
+		}
+
+		public static void UpdatePlaceholder(this UISearchBar uiSearchBar, ISearchBar searchBar)
+		{
+			uiSearchBar.Placeholder = searchBar.Placeholder;
 		}
 	}
 }
