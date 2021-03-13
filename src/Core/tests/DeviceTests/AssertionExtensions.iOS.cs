@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using CoreGraphics;
+using Foundation;
 using Microsoft.Maui.Essentials;
 using UIKit;
 using Xunit;
@@ -182,6 +183,23 @@ namespace Microsoft.Maui.DeviceTests
 
 			Assert.True(false, CreateColorError(bitmap, $"Color {expectedColor} not found."));
 			return bitmap;
+		}
+
+		public static double GetCharacterSpacing(this NSAttributedString text)
+		{
+			if (text == null)
+				return 0;
+
+			var value = text.GetAttribute(UIStringAttributeKey.KerningAdjustment, 0, out var range);
+			if (value == null)
+				return 0;
+
+			Assert.Equal(0, range.Location);
+			Assert.Equal(text.Length, range.Length);
+
+			var kerning = Assert.IsType<NSNumber>(value);
+
+			return kerning.DoubleValue;
 		}
 	}
 }
