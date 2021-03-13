@@ -126,7 +126,7 @@ namespace Microsoft.Maui.DeviceTests
 		}
 
 		double GetNativeCharacterSpacing(LabelHandler labelHandler) =>
-			Math.Round(GetNativeLabel(labelHandler).LetterSpacing / UnitExtensions.EmCoefficient, 4);
+			Math.Round(GetNativeLabel(labelHandler).LetterSpacing / UnitExtensions.EmCoefficient, EmCoefficientPrecision);
 
 		PaintFlags GetNativeTextDecorations(LabelHandler labelHandler) =>
 			GetNativeLabel(labelHandler).PaintFlags;
