@@ -4,13 +4,15 @@ namespace Microsoft.Maui.Handlers
 {
 	public partial class SearchBarHandler : AbstractViewHandler<ISearchBar, UISearchBar>
 	{
-		static UITextField? TextField;
+		UITextField? _textField;
 
-		protected override UISearchBar CreateNativeView() => new UISearchBar();
-
-		protected override void SetupDefaults(UISearchBar nativeView)
+		protected override UISearchBar CreateNativeView()
 		{
-			TextField ??= nativeView.FindDescendantView<UITextField>();
+			var searchBar = new UISearchBar();
+
+			_textField = searchBar.FindDescendantView<UITextField>();
+
+			return searchBar;
 		}
 
 		public static void MapText(SearchBarHandler handler, ISearchBar searchBar)
@@ -20,7 +22,7 @@ namespace Microsoft.Maui.Handlers
 
 		public static void MapCharacterSpacing(SearchBarHandler handler, ISearchBar searchBar)
 		{
-			handler.TypedNativeView?.UpdateCharacterSpacing(searchBar, TextField);
+			handler.TypedNativeView?.UpdateCharacterSpacing(searchBar, handler._textField);
 		}
 
 		public static void MapPlaceholder(SearchBarHandler handler, ISearchBar searchBar)

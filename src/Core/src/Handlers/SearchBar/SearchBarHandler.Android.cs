@@ -6,16 +6,15 @@ namespace Microsoft.Maui.Handlers
 {
 	public partial class SearchBarHandler : AbstractViewHandler<ISearchBar, SearchView>
 	{
-		static EditText? EditText;
+		EditText? _editText;
 
 		protected override SearchView CreateNativeView()
 		{
-			return new SearchView(Context);
-		}
+			var searchView = new SearchView(Context);
 
-		protected override void SetupDefaults(SearchView nativeView)
-		{
-			EditText ??= nativeView.GetChildrenOfType<EditText>().FirstOrDefault();
+			_editText ??= searchView.GetChildrenOfType<EditText>().FirstOrDefault();
+
+			return searchView;
 		}
 
 		public static void MapText(SearchBarHandler handler, ISearchBar searchBar)
@@ -25,7 +24,7 @@ namespace Microsoft.Maui.Handlers
 
 		public static void MapCharacterSpacing(SearchBarHandler handler, ISearchBar searchBar)
 		{
-			handler.TypedNativeView?.UpdateCharacterSpacing(searchBar, EditText);
+			handler.TypedNativeView?.UpdateCharacterSpacing(searchBar, handler._editText);
 		}
 
 		public static void MapPlaceholder(SearchBarHandler handler, ISearchBar searchBar)
