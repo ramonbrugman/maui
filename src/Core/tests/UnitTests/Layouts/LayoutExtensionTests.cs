@@ -1,9 +1,5 @@
-using Microsoft.Maui;
 using Microsoft.Maui.Layouts;
 using NSubstitute;
-using Xunit;
-using NSubstitute;
-using Microsoft.Maui.Layouts;
 using Xunit;
 using Microsoft.Maui.Primitives;
 using System.Collections.Generic;
@@ -32,7 +28,6 @@ namespace Microsoft.Maui.UnitTests.Layouts
 			Assert.Equal(60, frame.Height);
 		}
 
-		// TODO ezhart we need this test with layout alignments
 		[Theory]
 		[InlineData(LayoutAlignment.Fill)]
 		[InlineData(LayoutAlignment.Start)]

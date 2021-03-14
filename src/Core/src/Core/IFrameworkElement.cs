@@ -86,10 +86,14 @@ namespace Microsoft.Maui
 		/// </summary>
 		string AutomationId { get; }
 
-		double Width { get; }
-		double Height { get; }
-
+		/// <summary>
+		/// Determines the horizontal aspect of this element's arrangement in a container
+		/// </summary>
 		LayoutAlignment HorizontalLayoutAlignment { get; }
+
+		/// <summary>
+		/// Determines the vertical aspect of this element's arrangement in a container
+		/// </summary>
 		LayoutAlignment VerticalLayoutAlignment { get; }
 	}
 }
