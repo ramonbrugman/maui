@@ -35,6 +35,9 @@ namespace Maui.Controls.Sample.Pages
 			var verticalStack = new VerticalStackLayout() { Spacing = 5, BackgroundColor = Color.AntiqueWhite };
 			var horizontalStack = new HorizontalStackLayout() { Spacing = 2, BackgroundColor = Color.CornflowerBlue };
 
+
+			verticalStack.Add(CreateSampleGrid());
+
 			verticalStack.Add(new Label { Text = " ", Padding = new Thickness(10) });
 
 			var label = new Label { Text = "centered text", BackgroundColor = Color.Fuchsia, HorizontalTextAlignment = TextAlignment.End };
@@ -49,7 +52,6 @@ namespace Maui.Controls.Sample.Pages
 			verticalStack.Add(new Label { Text = loremIpsum, MaxLines = 2 });
 			verticalStack.Add(new Label { Text = loremIpsum, LineBreakMode = LineBreakMode.TailTruncation });
 			verticalStack.Add(new Label { Text = loremIpsum, MaxLines = 2, LineBreakMode = LineBreakMode.TailTruncation });
-
 
 			var paddingButton = new Button
 			{
@@ -120,8 +122,6 @@ namespace Maui.Controls.Sample.Pages
 
 			verticalStack.Add(new Image() { Source = "dotnet_bot.png" });
 
-			verticalStack.Add(CreateSampleGrid());
-
 			Content = verticalStack;
 		}
 	
@@ -176,7 +176,7 @@ namespace Maui.Controls.Sample.Pages
 			var layout = new Microsoft.Maui.Controls.Layout2.GridLayout() { ColumnSpacing = 5, RowSpacing = 8 };
 
 			layout.AddRowDefinition(new RowDefinition() { Height = new GridLength(40) });
-			layout.AddRowDefinition(new RowDefinition() { Height = new GridLength(40) });
+			layout.AddRowDefinition(new RowDefinition() { Height = GridLength.Auto });
 
 			layout.AddColumnDefinition(new ColumnDefinition() { Width = new GridLength(100) });
 			layout.AddColumnDefinition(new ColumnDefinition() { Width = new GridLength(100) });
